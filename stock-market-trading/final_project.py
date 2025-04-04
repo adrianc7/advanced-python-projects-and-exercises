@@ -42,8 +42,8 @@ from alpaca_trade_api.rest import REST, TimeFrame
 import json
 
 # Credentials and Base URL
-API_KEY = "PK2GXKIONADJJRJUBI5W"
-API_SECRET = "9AcfxoUBZpdiLRqgBF0piOiJ6YzGHq9VQnL5ya2L"
+API_KEY = "******"
+API_SECRET = "*******"
 BASE_URL = "https://paper-api.alpaca.markets"
 
 # Initialize Alpaca API client
