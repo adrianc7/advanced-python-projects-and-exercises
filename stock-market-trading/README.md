@@ -1,10 +1,10 @@
-# Cryptocurrency Arbitrage Detection Program
+# Stock Market Trading Automation (Paper Trading)
 
 ## Overview
-The **Cryptocurrency Arbitrage Detection Program** analyzes exchange rate relationships between major cryptocurrencies to identify potential arbitrage opportunities.  
-By fetching real-time pricing data from the **CoinGecko API** and representing currencies as nodes in a directed graph, the program detects pricing inconsistencies that could theoretically yield profit through circular trading paths.
+The **Stock Market Trading Automation** project simulates algorithmic trading strategies using historical and real-time data from the **Alpaca API**.  
+It evaluates multiple strategies—**SMA Crossover**, **Mean Reversion**, and **Volatility Breakout**—across 10 major U.S. equities in a **paper trading environment**, identifying which combination of stock and strategy yields the best simulated profit.
 
-This project demonstrates skills in **data ingestion**, **graph theory**, and **financial analytics** using Python, focusing on data-driven detection of arbitrage patterns.
+This project highlights skills in **data ingestion**, **technical indicator design**, and **Python automation**, offering a framework for scalable algorithmic trading research.
 
 ---
 
@@ -12,67 +12,108 @@ This project demonstrates skills in **data ingestion**, **graph theory**, and **
 
 | Category | Tools / Libraries |
 |:--|:--|
-| API Source | CoinGecko REST API |
+| API Source | Alpaca Trade API |
 | Language | Python |
-| Libraries | requests · networkx · matplotlib · pandas |
-| Concepts | Graph algorithms · Real-time data ingestion · Arbitrage analysis |
+| Libraries | pandas · json · alpaca-trade-api |
+| Data | Historical daily stock data (CSV files in `/data/`) |
+| Concepts | Technical Indicators · Automated Trading · Simulation · Scheduling |
 
 ---
 
 ## Architecture
 
-Real-Time Exchange Data (CoinGecko API)  
+Historical / Live Market Data (Alpaca API or `/data/*.csv`)  
 ↓  
-Data Ingestion (Python requests)  
+Data Loading and Cleaning (pandas)  
 ↓  
-Graph Construction (NetworkX Directed Graph)  
+Strategy Simulation (SMA · Mean Reversion · Volatility Breakout)  
 ↓  
-Path and Weight Analysis (Forward & Reverse Exchange Rates)  
+Result Logging (`results.json`)  
 ↓  
-Arbitrage Detection & Visualization (Matplotlib)
+Automation via Scheduled Execution (cron / task scheduler)
 
 ---
 
 ## Repository Contents
 
-| File | Description |
+| File / Folder | Description |
 |:--|:--|
-| [cryptotrade.ipynb](cryptotrade.ipynb) | Jupyter Notebook implementing the full pipeline: data fetching, graph construction, path analysis, and arbitrage detection. |
-| [cryptotrade.html](cryptotrade.html) | Rendered HTML output of the notebook with results and visualizations. |
-| [cryptocurrency-arbitrage-detection-program.pdf](cryptocurrency-arbitrage-detection-program.pdf) | Project summary report outlining objectives, architecture, results, and interpretation. |
+| **final_project.py** | Core script that retrieves stock data, applies all trading strategies, calculates profit/loss, and logs the best result. |
+| **results.json** | Automatically generated file storing the top-performing strategy, stock, and profit from the simulation. |
+| **Project Title: Stock Market Trading Automation (Paper Trading).pdf** | Formal report summarizing objectives, methodology, strategy logic, results, and project insights. |
+| **/data/** | Folder containing 10 historical stock CSV files used for backtesting and offline testing. Each file includes `Date`, `Open`, `High`, `Low`, `Close`, and `Volume` columns. |
+| ├── **AAPL.csv** – Apple Inc. (Tech)  
+| ├── **AMZN.csv** – Amazon.com Inc. (E-commerce)  
+| ├── **GOOGL.csv** – Alphabet Inc. (Google)  
+| ├── **META.csv** – Meta Platforms Inc. (Social Media)  
+| ├── **MSFT.csv** – Microsoft Corporation  
+| ├── **NFLX.csv** – Netflix Inc. (Streaming)  
+| ├── **NVDA.csv** – NVIDIA Corporation (Semiconductors)  
+| ├── **INTC.csv** – Intel Corporation  
+| ├── **IBM.csv** – IBM Corporation  
+| └── **TSLA.csv** – Tesla Inc. (Automotive / Tech) |
 
 ---
 
-## Key Features
+## Trading Strategies Implemented
 
-- **Live Data Ingestion:** Retrieves current cryptocurrency prices (USD pairs) from CoinGecko.  
-- **Graph-Based Modeling:** Builds a directed graph where edges represent exchange rates.  
-- **Arbitrage Detection:** Compares forward and reverse exchange paths to find pricing imbalances.  
-- **Visualization:** Generates a network graph showing relationships between currencies.  
-- **Insights Summary:** Reports smallest and largest price ratio deviations, signaling potential arbitrage opportunities.
+### **1. SMA (Simple Moving Average) Crossover**
+- Buys when the short-term SMA rises above the long-term SMA.  
+- Sells when the crossover reverses.  
+- Captures momentum and short-term trend shifts.
+
+### **2. Mean Reversion**
+- Calculates rolling mean and standard deviation to identify overbought or oversold signals.  
+- Buys when price dips below the lower band; sells when it exceeds the upper band.  
+- Designed for range-bound price patterns.
+
+### **3. Volatility Breakout**
+- Detects strong directional moves by comparing price changes to a volatility multiplier.  
+- Enters trades when daily price range exceeds a breakout threshold.  
+- Targets high-volatility stocks.
+
+---
+
+## Example Output (`results.json`)
+```json
+{
+  "Best Strategy": "Mean Reversion",
+  "Stock": "NFLX",
+  "Profit": 130.02
+}
+```
 
 ---
 
 ## Results Summary
+- Simulated **3 strategies** across **10 major U.S. equities** using Alpaca and historical data.  
+- **Best-performing combination:** *Mean Reversion on NFLX* (+$130 simulated profit).  
+- Demonstrated the ability to backtest, rank, and compare quantitative trading methods.  
+- Validated pipeline for transition to live algorithmic trading environments.
 
-- Constructed a currency exchange graph with USD as the central node.  
-- All analyzed paths showed **equilibrium (factor ≈ 1.0)**, indicating **no real-time arbitrage opportunities** under current market conditions.  
-- The system structure supports future extensions for continuous monitoring or multi-market analysis.
+---
+
+## Key Features
+- **Offline Testing:** Use `/data/*.csv` for historical backtesting or **live data** from Alpaca.  
+- **Multi-Strategy Evaluation:** Compare and log performance across multiple algorithmic models.  
+- **Paper Trading Environment:** Safely simulate trades without risking capital.  
+- **JSON Reporting:** Automatically records top results for tracking or dashboard display.  
+- **Modular Design:** Easily extendable to include additional strategies or asset classes.
 
 ---
 
 ## Learning Outcomes
-
-- Applied graph algorithms to real-world financial data.  
-- Integrated REST APIs for live data analysis.  
-- Explored graph-based reasoning for currency exchange and arbitrage.  
-- Practiced transforming notebook analytics into an interpretable financial insights report.
+- Built an automated trading simulation framework in Python.  
+- Applied technical indicators to assess strategy performance.  
+- Practiced algorithmic thinking and data-driven decision evaluation.  
+- Gained exposure to financial APIs, logging, and performance reporting.
 
 ---
 
 ## Future Improvements
-
-- Expand to include crypto-to-crypto exchange rates, not just USD pairs.  
-- Implement asynchronous API requests for faster data refresh.  
-- Develop real-time alerting for arbitrage threshold triggers.
+- Enable **real-time trading** mode with live Alpaca credentials.  
+- Integrate additional indicators (RSI, MACD, Bollinger Bands).  
+- Visualize cumulative returns and equity curves with matplotlib.  
+- Store trade history in a SQL database for long-term performance tracking.  
+- Deploy as a cloud-scheduled job (AWS Lambda or Azure Function) for daily execution.
 
