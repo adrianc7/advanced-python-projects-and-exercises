@@ -8,6 +8,7 @@ This repository showcases a collection of advanced Python projects and coding ch
 
 ### **1. Projects**
 Full-featured projects that solve complex problems or implement significant functionality:
+
 - **Stock Market Trading**  
   Implements trading strategies and data analysis for stock market simulation, focusing on decision-making and automation.
 
@@ -15,7 +16,7 @@ Full-featured projects that solve complex problems or implement significant func
   A Python-based implementation of the classic Blackjack card game, demonstrating logic building and game development skills.
 
 - **COVID-19 API Analysis**  
-  Focuses on **data ingestion** by retrieving COVID-19 case data from a public API. The data is processed and prepared for analysis or integration into larger data pipelines.
+  Focuses on data ingestion by retrieving COVID-19 case data from a public API. The data is processed and prepared for analysis or integration into larger data pipelines.
 
 - **Cryptocurrency Exchange Simulator**  
   Fetches real-time cryptocurrency trading data via an API for simulation purposes, showcasing data ingestion and preparation for trading or analytics workflows.
@@ -39,14 +40,9 @@ Smaller tasks designed to hone specific programming skills:
 ---
 
 ## **Focus on Data Ingestion**
-Several projects in this repository emphasize **data ingestion**, which is a foundational step in building data pipelines. For example:
+Several projects in this repository emphasize data ingestion, which is a foundational step in building data pipelines. For example:
 - **COVID-19 API Analysis** retrieves public health data, processes it, and prepares it for further use.
 - **Cryptocurrency Exchange Simulator** ingests real-time trading data, highlighting its utility for integration into trading strategies or dashboards.
 
 While these projects do not include data storage or utilization, they serve as the groundwork for creating full-fledged data pipelines.
 
----
-
-## **Future Additions**
-- **Expanded Projects**: Incorporating storage (e.g., databases), automation, and visualization for end-to-end workflows.
-- **Advanced Topics**: Asynchronous programming, machine learning pipelines, and distributed systems.
