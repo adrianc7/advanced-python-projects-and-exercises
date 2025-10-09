@@ -1,10 +1,10 @@
 # Stock Market Trading Automation (Paper Trading)
 
 ## Overview
-The **Stock Market Trading Automation** project simulates algorithmic trading strategies using historical and real-time data from the **Alpaca API**.  
-It evaluates multiple strategies—**SMA Crossover**, **Mean Reversion**, and **Volatility Breakout**—across 10 major U.S. equities in a **paper trading environment**, identifying which combination of stock and strategy yields the best simulated profit.
+This Stock Market Trading Automation project simulates algorithmic trading strategies using historical and real-time data from the Alpaca API.  
+It evaluates multiple strategies—SMA Crossover, Mean Reversion, and Volatility Breakout—across 10 major U.S. equities in a paper trading environment, identifying which combination of stock and strategy yields the best simulated profit.
 
-This project highlights skills in **data ingestion**, **technical indicator design**, and **Python automation**, offering a framework for scalable algorithmic trading research.
+This project highlights skills in data ingestion, technical indicator design, and Python automation, offering a framework for scalable algorithmic trading research.
 
 ---
 
@@ -41,17 +41,7 @@ Automation via Scheduled Execution (cron / task scheduler)
 | **final_project.py** | Core script that retrieves stock data, applies all trading strategies, calculates profit/loss, and logs the best result. |
 | **results.json** | Automatically generated file storing the top-performing strategy, stock, and profit from the simulation. |
 | **Project Title: Stock Market Trading Automation (Paper Trading).pdf** | Formal report summarizing objectives, methodology, strategy logic, results, and project insights. |
-| **/data/** | Folder containing 10 historical stock CSV files used for backtesting and offline testing. Each file includes `Date`, `Open`, `High`, `Low`, `Close`, and `Volume` columns. |
-| ├── **AAPL.csv** – Apple Inc. (Tech)  
-| ├── **AMZN.csv** – Amazon.com Inc. (E-commerce)  
-| ├── **GOOGL.csv** – Alphabet Inc. (Google)  
-| ├── **META.csv** – Meta Platforms Inc. (Social Media)  
-| ├── **MSFT.csv** – Microsoft Corporation  
-| ├── **NFLX.csv** – Netflix Inc. (Streaming)  
-| ├── **NVDA.csv** – NVIDIA Corporation (Semiconductors)  
-| ├── **INTC.csv** – Intel Corporation  
-| ├── **IBM.csv** – IBM Corporation  
-| └── **TSLA.csv** – Tesla Inc. (Automotive / Tech) |
+| **"data" folder** | Folder containing 10 historical stock CSV files used for backtesting and offline testing. Each file includes `Date`, `Open`, `High`, `Low`, `Close`, and `Volume` columns. |
 
 ---
 
@@ -86,15 +76,15 @@ Automation via Scheduled Execution (cron / task scheduler)
 ---
 
 ## Results Summary
-- Simulated **3 strategies** across **10 major U.S. equities** using Alpaca and historical data.  
-- **Best-performing combination:** *Mean Reversion on NFLX* (+$130 simulated profit).  
+- Simulated 3 strategies across 10 major U.S. equities using Alpaca and historical data.  
+- Best-performing combination: *Mean Reversion on NFLX* (+$130 simulated profit).  
 - Demonstrated the ability to backtest, rank, and compare quantitative trading methods.  
 - Validated pipeline for transition to live algorithmic trading environments.
 
 ---
 
 ## Key Features
-- **Offline Testing:** Use `/data/*.csv` for historical backtesting or **live data** from Alpaca.  
+- **Offline Testing:** Use `/data/*.csv` for historical backtesting or live data from Alpaca.  
 - **Multi-Strategy Evaluation:** Compare and log performance across multiple algorithmic models.  
 - **Paper Trading Environment:** Safely simulate trades without risking capital.  
 - **JSON Reporting:** Automatically records top results for tracking or dashboard display.  
@@ -110,8 +100,8 @@ Automation via Scheduled Execution (cron / task scheduler)
 
 ---
 
-## Future Improvements
-- Enable **real-time trading** mode with live Alpaca credentials.  
+## Potential Future Improvements
+- Enable real-time trading mode with live Alpaca credentials.  
 - Integrate additional indicators (RSI, MACD, Bollinger Bands).  
 - Visualize cumulative returns and equity curves with matplotlib.  
 - Store trade history in a SQL database for long-term performance tracking.  
