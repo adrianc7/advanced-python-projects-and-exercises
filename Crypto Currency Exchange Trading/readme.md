@@ -55,7 +55,7 @@ Arbitrage Detection & Visualization (Matplotlib)
 ## Results Summary
 
 - Constructed a currency exchange graph with USD as the central node.  
-- All analyzed paths showed **equilibrium (factor ≈ 1.0)**, indicating **no real-time arbitrage opportunities** under current market conditions.  
+- All analyzed paths showed **equilibrium (factor ≈ 1.0)**, **indicating **no real-time arbitrage opportunities under current market conditions**.  
 - The system structure supports future extensions for continuous monitoring or multi-market analysis.
 
 ---
